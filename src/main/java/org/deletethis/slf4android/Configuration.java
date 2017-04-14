@@ -24,7 +24,7 @@
  *
  */
 
-package org.deletethis.log4android;
+package org.deletethis.slf4android;
 
 import android.util.Log;
 

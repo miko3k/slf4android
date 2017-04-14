@@ -21,11 +21,11 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package org.deletethis.log4android.examples;
+package org.deletethis.slf4android.examples;
 
 import android.app.Application;
-import org.deletethis.log4android.DefaultConfiguration;
-import org.deletethis.log4android.Slf4Android;
+import org.deletethis.slf4android.DefaultConfiguration;
+import org.deletethis.slf4android.Slf4Android;
 
 // feel flee to override any number of methods
 class ExampleConfiguration extends DefaultConfiguration {

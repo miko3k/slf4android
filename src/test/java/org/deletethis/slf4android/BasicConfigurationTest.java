@@ -23,8 +23,9 @@
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  *
  */
-package org.deletethis.log4android;
+package org.deletethis.slf4android;
 
+import org.deletethis.slf4android.DefaultConfiguration;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
