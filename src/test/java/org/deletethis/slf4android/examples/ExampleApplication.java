@@ -27,7 +27,7 @@ import android.app.Application;
 import org.deletethis.slf4android.DefaultConfiguration;
 import org.deletethis.slf4android.Slf4Android;
 
-// feel flee to override any number of methods
+// only override a method if default is not good enough
 class ExampleConfiguration extends DefaultConfiguration {
     // log every message
     @Override
@@ -46,6 +46,7 @@ public class ExampleApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
+        // this is not thread safe, beware!
         Slf4Android.setConfiguration(new DefaultConfiguration());
     }
 }

@@ -11,19 +11,20 @@ An alternative [SLF4J] binding for Android. It is a copy of the [official one][s
 Because offical binding always uses `isLoggable` before issuing logging calls and its probably [impossible][isLoggable] to enable `DEBUG`/`VERBOSE` logs globaly,
 only per tag.
 
-It seems most Android apps do not bother to call `isLoggable` and happily use debug logs. This library allows you to do exactly the same, 
-if you want. It also allows you to customize logger to tag name mapping.
+It seems most Android apps do not bother to call `isLoggable` and happily use debug logs. This library allows you to do exactly the same.
+
+You can also customize logger to tag name mapping. For example, small application may live happily with a single tag name.
 
 ## How?
 
-Like this:
-
 ```java
+package org.deletethis.slf4android.examples;
+
 import android.app.Application;
 import org.deletethis.slf4android.DefaultConfiguration;
 import org.deletethis.slf4android.Slf4Android;
 
-// feel flee to override any number of methods
+// only override a method if default is not good enough
 class ExampleConfiguration extends DefaultConfiguration {
     // log every message
     @Override
@@ -42,11 +43,30 @@ public class ExampleApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        Slf4Android.setConfiguration(new ExampleConfiguration());
+        // this is not thread safe, beware!
+        Slf4Android.setConfiguration(new DefaultConfiguration());
     }
 }
 ```
 
-## Addional info
+## Installation
+
+This project is not in any official maven repository, in order to use it, you should
+
+* Build `slf4android`
+  
+  1) download it 
+  2) `mvn install`
+  
+* Use `slf4android` in an android project
+
+  3) add `mavenLocal()` to `repositories` of your gradle script
+  4) add `compile 'org.deletethis:slf4android:1.0.0'` to `dependencies` (check the version, maybe I have forgotten to update this readme)
+
+## Additional info
 
 Without any configuration, `slf4android` should behave identically to official binding. 
+
+## License
+
+[MIT](https://opensource.org/licenses/MIT), as the original SLF4J-Android binding.
