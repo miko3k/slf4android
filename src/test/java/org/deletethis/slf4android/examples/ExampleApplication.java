@@ -47,6 +47,6 @@ public class ExampleApplication extends Application {
     public void onCreate() {
         super.onCreate();
         // this is not thread safe, beware!
-        Slf4Android.setConfiguration(new DefaultConfiguration());
+        Slf4Android.setConfiguration(new ExampleConfiguration());
     }
 }

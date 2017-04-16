@@ -31,7 +31,7 @@ class ExampleConfiguration extends DefaultConfiguration {
     public boolean isLoggable(String tag, int level) {
         return true;
     }
-    
+
     // ignore logger name and always use "ExampleApplication" as tag name
     @Override
     public String getTag(String loggerName) {
@@ -54,18 +54,31 @@ public class ExampleApplication extends Application {
 This project is not in any official maven repository, in order to use it, you should
 
 * Build `slf4android`
-  
-  1) download it 
+
+  1) download it
   2) `mvn install`
-  
+
 * Use `slf4android` in an android project
 
   3) add `mavenLocal()` to `repositories` of your gradle script
-  4) add `compile 'org.deletethis:slf4android:1.0.0'` to `dependencies` (check the version, maybe I have forgotten to update this readme)
+  4) add `dependencies`
+
+     * `compile 'org.deletethis:slf4android:1.0.0'`
+     * `compile 'org.slf4j:slf4j-api:1.7.25''`
+
+  5) register your `Application` in `AndroidManifest.xml`
+
+     ```xml
+     ...
+     <application
+        android:name="org.deletethis.slf4android.examples.ExampleApplication"
+        ...
+     ```
+
 
 ## Additional info
 
-Without any configuration, `slf4android` should behave identically to official binding. 
+Without any configuration, `slf4android` should behave identically to official binding.
 
 ## License
 
